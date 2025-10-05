@@ -1,6 +1,10 @@
 title: FeatureFence
 description: Baseline-powered ESLint plugin for safer web features
 theme: jekyll-theme-cayman
+# IMPORTANT for project pages:
+url: "https://sureshwizard.github.io"
+baseurl: "/futurefence"   # <= your repo name
+
 plugins: []
 markdown: kramdown
 kramdown:
