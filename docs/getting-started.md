@@ -13,8 +13,6 @@ npm i -D eslint eslint-plugin-featurefence web-features browserslist
 2) Configure (ESLint flat config)
 Create eslint.config.mjs:
 
-js
-Copy code
 // eslint.config.mjs
 import featurefence from "eslint-plugin-featurefence";
 
@@ -36,12 +34,10 @@ mode: "baseline-only" or "baseline-or-targets" (default)
 targets: Browserslist array (accepted for per-target checks)
 
 3) Run ESLint
-bash
-Copy code
+
 npx eslint "src/**/*.{js,jsx,ts,tsx}"
 4) CI Example (GitHub Actions)
-yaml
-Copy code
+
 name: lint
 on: [push, pull_request]
 jobs:
@@ -55,11 +51,9 @@ jobs:
       - run: npm ci
       - run: npx eslint "src/**/*.{js,jsx,ts,tsx}"
 5) Uninstall
-bash
-Copy code
+
 npm remove eslint-plugin-featurefence
-yaml
-Copy code
+
 
 ---
 
@@ -71,6 +65,8 @@ Copy code
 - CSS and nav are included  
 
 Would you like me to now do the **same cleanup for your `index.md`, `examples.md`, and `faq.md`** so none of them break like this?
+
+
 
 
 
