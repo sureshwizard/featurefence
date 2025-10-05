@@ -1,4 +1,3 @@
-🏠 4) index.md
 ---
 title: Home
 ---
@@ -27,7 +26,7 @@ title: Home
 <div class="btns">
   <a class="btn primary" href="{{ '/getting-started' | relative_url }}">Get Started</a>
   <a class="btn" href="{{ '/examples' | relative_url }}">See Examples</a>
-  <a class="btn" href="https://github.com/sureshwizard/featurefence" target="_blank" rel="noopener">GitHub Repo</a>
+  <a class="btn" href="https://github.com/sureshwizard/baselineproject" target="_blank" rel="noopener">GitHub Repo</a>
 </div>
 
 ## Why FeatureFence?
@@ -36,8 +35,9 @@ Modern APIs are great—until they fail in a user’s browser. **Baseline** give
 ## Quick Install
 ```bash
 npm i -D eslint eslint-plugin-featurefence web-features browserslist
-
 Example Warning (JSON)
+json
+Copy code
 {
   "ruleId": "featurefence/no-unsupported-feature",
   "message": "‘CSS :has() pseudo-class’ may not be widely supported (Baseline check failed).",
@@ -45,11 +45,23 @@ Example Warning (JSON)
   "column": 15,
   "severity": 1
 }
-
 Live Playground (Optional)
-
 Hosted UI: https://your-domain.com/featurefence/
 
 API: https://your-domain.com/api/lint
 
-Tip: Add a screenshot/GIF of your playground:
+Tip: Add a screenshot/GIF of your playground below and place the file at docs/assets/demo-screenshot.png.
+
+
+vbnet
+Copy code
+
+And make sure your `docs/_config.yml` has the correct base path for your repo:
+
+```yml
+title: FeatureFence
+description: Baseline-powered ESLint plugin for safer web features
+theme: jekyll-theme-cayman
+url: "https://sureshwizard.github.io"
+baseurl: "/baselineproject"
+markdown: kramdown
