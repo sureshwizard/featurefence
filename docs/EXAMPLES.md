@@ -44,5 +44,4 @@ Enforce in PRs/CI
 
 Use Baseline-safe alternatives or polyfills when warned
 
-yaml
-Copy code
+
