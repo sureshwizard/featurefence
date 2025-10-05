@@ -1,0 +1,14 @@
+import featurefence from "../packages/eslint-plugin-featurefence/lib/index.js";
+
+export default [
+  {
+    languageOptions: { ecmaVersion: 2022, sourceType: "module" },
+    plugins: { featurefence },
+    rules: {
+      "featurefence/no-unsupported-feature": ["warn", {
+        mode: "baseline-or-targets",
+        targets: [">=0.5%", "last 2 versions", "not dead"]
+      }]
+    }
+  }
+];

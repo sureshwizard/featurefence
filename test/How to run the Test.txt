@@ -1,0 +1,15 @@
+4) How to Run the Test
+
+From repo root:
+
+cd test
+npx eslint "samples/demo.js" --config eslint.config.mjs
+
+
+Expected output (example):
+
+samples/demo.js
+  4:10  warning  ‘View Transitions API’ may not be widely supported (Baseline check failed)     featurefence/no-unsupported-feature
+  8:13  warning  ‘CSS :has() pseudo-class’ may not be widely supported (Baseline check failed)  featurefence/no-unsupported-feature
+
+✖ 2 problems (0 errors, 2 warnings)

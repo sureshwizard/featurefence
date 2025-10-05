@@ -1,0 +1,16 @@
+{
+  "name": "eslint-plugin-featurefence",
+  "version": "0.1.0",
+  "description": "Baseline-powered ESLint rules that fence off unsupported web features.",
+  "main": "lib/index.js",
+  "keywords": ["eslint", "baseline", "compat", "web-features"],
+  "author": "Suresh Kumar Thulasi Ram",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "dependencies": {
+    "browserslist": "^4.23.0",
+    "web-features": "^0.9.0"
+  }
+}

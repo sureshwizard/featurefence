@@ -1,0 +1,13 @@
+title: FeatureFence
+description: Baseline-powered ESLint plugin for safer web features
+theme: jekyll-theme-cayman
+plugins: []
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+defaults:
+  - scope: { path: "" }
+    values:
+      layout: default
+# GitHub Pages: Settings → Pages → Build from /docs

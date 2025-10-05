@@ -1,0 +1,82 @@
+4) AlmaLinux deployment (production URL)
+
+These steps give you two URLs:
+
+Playground Web UI (e.g., https://your-domain.com/featurefence/)
+
+API endpoint proxied at https://your-domain.com/api/lint
+
+Prereqs (on your AlmaLinux server)
+# 1) Node.js (use 20.x LTS)
+curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+sudo dnf install -y nodejs git
+
+# 2) PM2 for process management
+sudo npm i -g pm2
+
+# 3) Nginx for reverse proxy (optional but recommended)
+sudo dnf install -y nginx
+sudo systemctl enable --now nginx
+
+Get the repo & install
+cd /var/www
+sudo git clone https://github.com/sureshwizard/featurefence.git
+sudo chown -R $USER:$USER featurefence
+cd featurefence
+
+# Install plugin package deps
+cd packages/eslint-plugin-featurefence
+npm i
+
+# Install server deps
+cd ../../playground-server
+npm i
+
+# Start API with PM2
+pm2 start server.js --name featurefence-api
+pm2 save
+
+# Serve static web (playground-web) via Nginx
+# Copy the static files to /usr/share/nginx/html/featurefence
+sudo mkdir -p /usr/share/nginx/html/featurefence
+sudo cp -r ../playground-web/public/* /usr/share/nginx/html/featurefence/
+
+Nginx site config
+
+Create (or edit) /etc/nginx/conf.d/featurefence.conf:
+
+server {
+    listen 80;
+    server_name your-domain.com;
+
+    # Static playground
+    location /featurefence/ {
+        alias /usr/share/nginx/html/featurefence/;
+        index index.html;
+        try_files $uri $uri/ /featurefence/index.html;
+    }
+
+    # API proxy → Node app on 3000
+    location /api/ {
+        proxy_pass http://127.0.0.1:3000/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+
+Test & reload:
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+(Optional) add HTTPS with Certbot.
+
+Final production URLs (after DNS → your server):
+
+Playground/UI: https://your-domain.com/featurefence/
+
+API (proxied): https://your-domain.com/api/lint
+
+The web page calls /api/lint, which Nginx proxies to your Node API.
