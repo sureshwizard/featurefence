@@ -1,7 +1,35 @@
-<div class="nav">
-  <a href="{{ '/' | relative_url }}">Home</a>
-  <a href="{{ '/getting-started' | relative_url }}">Getting Started</a>
-  <a href="{{ '/examples' | relative_url }}">Examples</a>
-  <a href="{{ '/faq' | relative_url }}">FAQ</a>
-  <a href="https://github.com/sureshwizard/featurefence" target="_blank" rel="noopener">GitHub</a>
+<nav class="ff-nav">
+<div class="ff-container">
+<a class="brand" href="{{ '/' | relative_url }}">
+<svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" class="logo">
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#6EE7F9"/>
+<stop offset="50%" stop-color="#8B5CF6"/>
+<stop offset="100%" stop-color="#EC4899"/>
+</linearGradient>
+</defs>
+<rect x="2" y="4" width="20" height="16" rx="4" fill="url(#g)"/>
+<path d="M7 10h10M7 14h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+</svg>
+<span>FeatureFence</span>
+</a>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+<ul class="links">
+<li><a href="{{ '/' | relative_url }}">Home</a></li>
+<li><a href="{{ '/getting-started' | relative_url }}">Getting Started</a></li>
+<li><a href="{{ '/examples' | relative_url }}">Examples</a></li>
+<li><a href="{{ '/faq' | relative_url }}">FAQ</a></li>
+<li><a class="github" href="https://github.com/sureshwizard/featurefence" target="_blank" rel="noopener">GitHub</a></li>
+</ul>
 </div>
+</nav>
+<script>
+// Mobile menu
+const btn = document.currentScript.previousElementSibling.querySelector('.nav-toggle');
+const links = document.currentScript.previousElementSibling.querySelector('.links');
+btn.addEventListener('click', () => {
+const open = links.classList.toggle('open');
+btn.setAttribute('aria-expanded', open);
+});
+</script>
