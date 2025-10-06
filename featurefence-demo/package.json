@@ -1,0 +1,18 @@
+{
+  "name": "featurefence-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "browserslist": "^4.26.3",
+    "eslint": "^9.37.0",
+    "web-features": "^3.3.0"
+  }
+}

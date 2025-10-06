@@ -1,6 +1,3 @@
-
-## `packages/eslint-plugin-featurefence/lib/index.js`
-```js
 "use strict";
 
 const rule = require("./rules/no-unsupported-feature");

@@ -7,16 +7,15 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "200kb" }));
 
-// Lint JS sent by the client and return messages
 app.post("/lint", async (req, res) => {
   try {
     const { code } = req.body;
-    if (typeof code !== "string") return res.status(400).json({ error: "Missing code" });
+    if (typeof code !== "string") {
+      return res.status(400).json({ error: "Missing code" });
+    }
 
     const eslint = new ESLint({
-      useEslintrc: false,
-      overrideConfigFile: null,
-      overrideConfig: config[0]
+      overrideConfig: config[0]   // ✅ ESLint v9-friendly
     });
 
     const results = await eslint.lintText(code, { filePath: "input.js" });
@@ -28,6 +27,9 @@ app.post("/lint", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("FeatureFence Playground API running on http://localhost:3000");
+// Bind to all interfaces; default port from env or 4073 if you prefer
+const PORT = process.env.PORT || 4073;
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`FeatureFence Playground API running on http://0.0.0.0:${PORT}`);
 });
+

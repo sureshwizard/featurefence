@@ -1,16 +1,9 @@
 "use strict";
 
-/**
- * Rule: featurefence/no-unsupported-feature
- * - Detects a small set of modern features (demo)
- * - Uses Baseline via web-features to decide whether to warn
- */
+const { isAllowed } = require("../utils/baseline");
 
-const { isAllowed, CODE_TO_FEATURE } = require("../utils/baseline");
-
+// Utility: check member/call chain like document.startViewTransition()
 function isDotChain(node, chain) {
-  // Checks MemberExpression/CallExpression chain equals e.g. "document.startViewTransition"
-  // chain = ["document", "startViewTransition"]
   const segs = [];
   let n = node;
   while (n && (n.type === "MemberExpression" || n.type === "CallExpression")) {
@@ -59,20 +52,17 @@ module.exports = {
     }
 
     return {
-      // Detect document.startViewTransition()
+      // JS: document.startViewTransition(...)
       CallExpression(node) {
-        // document.startViewTransition(...)
         if (isDotChain(node, ["document", "startViewTransition"])) {
           report("view-transitions", node, "View Transitions API");
         }
       },
 
-      // Very simple CSS string scan (for CSS-in-JS literals)
+      // CSS-in-JS / strings: detect ":has("
       TemplateLiteral(node) {
         const raw = node.quasis.map(q => q.value.raw).join("");
-        if (raw.includes(":has(")) {
-          report("css-has-pseudo", node, "CSS :has() pseudo-class");
-        }
+        if (raw.includes(":has(")) report("css-has-pseudo", node, "CSS :has() pseudo-class");
       },
       Literal(node) {
         if (typeof node.value === "string" && node.value.includes(":has(")) {
