@@ -1,7 +1,33 @@
-:root{
-.ff-nav .nav-toggle{display:block}
-.ff-nav .links{display:none;position:absolute;top:64px;right:20px;background:var(--bg-soft);border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);border-radius:14px;padding:8px;width:min(90vw,320px);flex-direction:column}
-.ff-nav .links.open{display:flex}
+:root {
+  /* This is where your CSS variables (custom properties) should go */
+  /* Example: */
+  /* --bg-body: #121212; */
+  /* --text: #ffffff; */
+  /* --muted: #a0a0a0; */
+  /* --shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+  /* --brand-a: #8b5cf6; */
+  /* etc. */
+}
+
+/* These rules should be outside of :root */
+.ff-nav .nav-toggle {
+  display: block;
+}
+.ff-nav .links {
+  display: none;
+  position: absolute;
+  top: 64px;
+  right: 20px;
+  background: var(--bg-soft);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: 8px;
+  width: min(90vw, 320px);
+  flex-direction: column;
+}
+.ff-nav .links.open {
+  display: flex;
 }
 
 
@@ -29,11 +55,11 @@ section{margin:40px 0}
 
 .card p {
   margin: 0;
-  color: white !important; /* Temporarily force white to see if it fixes it */
+  color: black !important;
 }
 .card h3 {
   margin: 0 0 8px;
-  color: white !important; /* Temporarily force white */
+  color: black !important;
 }
 
 
