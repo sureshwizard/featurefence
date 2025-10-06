@@ -20,7 +20,7 @@ section{margin:40px 0}
 .grid.cols-3{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){.grid.cols-3{grid-template-columns:1fr}}
 .card {
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  background: yellow;
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 16px;
   padding: 20px;
