@@ -19,9 +19,24 @@ section{margin:40px 0}
 .grid{display:grid;gap:20px}
 .grid.cols-3{grid-template-columns:repeat(3,1fr)}
 @media (max-width:900px){.grid.cols-3{grid-template-columns:1fr}}
-.card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
-.card h3{margin:0 0 8px}
-.card p{margin:0;color:var(--muted)}
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  color: var(--text); /* ensure bright heading */
+}
+
+.card p {
+  margin: 0;
+  color: var(--text); /* bright white instead of muted gray */
+}
+
 
 
 /* Hero */
