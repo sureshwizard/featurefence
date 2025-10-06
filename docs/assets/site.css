@@ -48,7 +48,7 @@ section{margin:40px 0}
 
 /* Code block look */
 pre,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-pre{background:#0a0f22;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;overflow:auto}
+pre{background:#cacedf;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;overflow:auto}
 code.inline{padding:.15rem .4rem;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
 
 
