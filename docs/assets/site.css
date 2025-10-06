@@ -27,14 +27,13 @@ section{margin:40px 0}
   box-shadow: var(--shadow);
 }
 
-.card h3 {
-  margin: 0 0 8px;
-  color: var(--text); /* ensure bright heading */
-}
-
 .card p {
   margin: 0;
-  color: var(--text); /* bright white instead of muted gray */
+  color: white !important; /* Temporarily force white to see if it fixes it */
+}
+.card h3 {
+  margin: 0 0 8px;
+  color: white !important; /* Temporarily force white */
 }
 
 
